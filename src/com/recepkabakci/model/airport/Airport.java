@@ -25,13 +25,11 @@ public class Airport {
 //		this.taxiway1 = new BuildingPart("Taksi 1", "Beton", 200, 25);
 //		this.taxiway2 = new BuildingPart("Taksi 2", "Beton", 100, 25);
 //		this.apron    = new BuildingPart("Apron", "Beton", 200, 300);
-		this.parts = new BuildingPart[5];   // hava alanının taşıtların dolaşabileceği parçaları için 
+		this.parts = new BuildingPart[5];   
 		this.buildAirport();  
 	}
 
-	/**
-	 * hava alanını burada "inşa" ediyoruz. Yani yapı taşlarının tanımlıyoruz
-	 */
+	
 	private void buildAirport() {
 		this.parts[0] = new BuildingPart("Pist", "Asfalt", 2000, 50, Part.RUNWAY);
 		this.parts[1] = new BuildingPart("Taksi 1", "Beton", 200, 25, Part.TAXI);

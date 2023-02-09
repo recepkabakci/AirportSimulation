@@ -66,9 +66,7 @@ public abstract class Vehicle implements Comparable<Vehicle>, Serializable {
 	 */
 	public static Vehicle parse(String line) throws UnrecognizedVehicleException {
 		// HELI;Bell;Heli 01;Black;Gasoline;150;;;;;;;
-		StringTokenizer  tokenizer = new StringTokenizer(line, ";");  // StringTokenizer öğeleri bir ayraç ile ayrılmış bir String'i
-																	  // tekrar bireysel öğelere ayırıyor. Bu şekilde her bir parçayı
-																		// ayrı ayrı tanımlayıp işleyebiliyoruz
+		StringTokenizer  tokenizer = new StringTokenizer(line, ";");  
 
 		String type = tokenizer.nextToken().toUpperCase(); 		// VehicleType ==> HELI   // nextToken sırayla öğeleri veriyor
 		String brand = tokenizer.nextToken(); 					// Brand ==> Bell 
@@ -124,12 +122,7 @@ public abstract class Vehicle implements Comparable<Vehicle>, Serializable {
 		}
 	}
 
-	/**
-	 * Bilgileri yorumlarken özellikle String'ten sayı şekline dönüştürken hatalı veri sonucu sayıya döndürme işlemi
-	 * yapılamayıp program çökebilir. Bu durumu merkezi bir şekilde kontrol etmek için bu yöntem kullanılıyor
-	 * @param token  Yorumlanması gereken bir bilgi
-	 * @return
-	 */
+	
 	private static int parseIntegerValue(String token) {
 		int retVal = 0;
 		try {
@@ -137,7 +130,7 @@ public abstract class Vehicle implements Comparable<Vehicle>, Serializable {
 		}
 		catch (NumberFormatException ex) {
 			ApplicationLogger.warning("Unexpected token <<< " + token + " >>>");
-			retVal = Integer.MIN_VALUE;   // olabilecek en küçük Integer sayı. Uygulamanın diğer bölümlerinde sayının geçersiz bir değer aldığını fark etmek için
+			retVal = Integer.MIN_VALUE;   
 		}
 		return retVal;
 	}
